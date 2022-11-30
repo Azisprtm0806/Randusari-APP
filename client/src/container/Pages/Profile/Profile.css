@@ -1,0 +1,10 @@
+/* profile */
+.jumbotron{
+  padding-top: 1rem;
+  background-color: #1E90FF;
+  color: #e0ebfa;
+}
+.jumbotron a{
+  text-decoration: none;
+  color: #e0ebfa;
+}
