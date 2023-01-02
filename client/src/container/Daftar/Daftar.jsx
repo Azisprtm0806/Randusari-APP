@@ -62,7 +62,7 @@ const Daftar = () => {
             className='input' 
             type="email" 
             name='email' 
-            placeholder='Username'
+            placeholder='Email'
             value={data.email}
             onChange={handleChange}  
           />

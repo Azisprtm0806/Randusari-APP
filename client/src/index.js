@@ -11,6 +11,8 @@ import EditProfile from "./container/Pages/Profile/EditProfile/EditProfile";
 import EditKasMasuk from "./container/Pages/Masjid/Action/EditKasMasuk";
 import "./index.css";
 import EditKasKeluar from "./container/Pages/Masjid/Action/EditKasKeluar";
+import ForgotPassword from "./container/ForgotPassword/ForgotPassword";
+import ResetPassword from "./container/ResetPassword/ResetPassword";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const user = localStorage.getItem("token");
@@ -19,6 +21,8 @@ root.render(
     <Routes>
       <Route path="/" element={<Login />}></Route>
       <Route path="/daftar" element={<Daftar />}></Route>
+      <Route path="/forgot-password" element={<ForgotPassword />}></Route>
+      <Route path="/reset-password/:token" element={<ResetPassword />}></Route>
       {user && <Route path="/home" element={<Home />}></Route>}
       {user && <Route path="/profile" element={<Profile />}></Route>}
       {user && <Route path="/edit-profile" element={<EditProfile />}></Route>}

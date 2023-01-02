@@ -12,6 +12,8 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use("/register", require("./routes/register"));
 app.use("/auth-user", require("./routes/auth"));
+app.use("/forgot-password", require("./routes/forgotPass"));
+app.use("/reset-password", require("./routes/resetPass"));
 app.use("/kas", require("./routes/kas"));
 app.use("/warga", require("./routes/warga"));
 

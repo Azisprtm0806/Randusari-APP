@@ -20,6 +20,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  resetPasswordLink: {
+    data: String,
+    default: "",
+  },
 });
 
 userSchema.methods.generateAuthToken = function () {
@@ -41,4 +45,12 @@ const validate = (data) => {
   return schema.validate(data);
 };
 
-module.exports = { User, validate };
+const validateResetPass = (data) => {
+  const schema = Joi.object({
+    email: Joi.string().email().required().label("Email"),
+    password: PasswordComplexity().required().label("Password"),
+  });
+  return schema.validate(data);
+};
+
+module.exports = { User, validate, validateResetPass };

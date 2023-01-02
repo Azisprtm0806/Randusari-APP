@@ -44,6 +44,7 @@ const Login = () => {
           <button className='btn_login' type='submit'>Sign In</button>
           <div className="daftar">
             <p>don't have account? <Link to="/daftar">Create Account</Link></p>
+            <p><Link to="/forgot-password">Forgot Password?</Link></p>
           </div>
         </form>
       </div>

@@ -9,7 +9,9 @@ module.exports = {
       jenisKas: jenisKas,
       ket: ket,
       jumlah: jumlah,
+      date: Date.now(),
     });
+    newKas.date instanceof Date;
     newKas
       .save()
       .then((result) => {
