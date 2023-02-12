@@ -26,6 +26,9 @@ class Masjid extends Component {
                 <Tab eventKey="masuk" title="Kas Masuk">
                   <div className="card-title">Kas Masuk</div>
                   <FormKasMasuk />
+                  <div className='total-kas'>
+                    <h4>Total Pemasukan : <span>Rp.5000</span></h4>
+                  </div>
                   <KasMasuk />
                 </Tab>
                 <Tab eventKey="keluar" title="Kas Keluar">

@@ -1,15 +1,18 @@
 const Kas = require("../model/Kas");
+const moment = require("moment");
 
 module.exports = {
   // KAS MASJID
   createKas: (req, res) => {
     const { jenisKas, ket, jumlah } = req.body;
 
+    const date = moment().format("DD-MM-YYYY");
+
     const newKas = new Kas({
       jenisKas: jenisKas,
       ket: ket,
       jumlah: jumlah,
-      date: Date.now(),
+      date: date,
     });
     newKas.date instanceof Date;
     newKas
@@ -25,6 +28,11 @@ module.exports = {
 
   getRekapKas: async (req, res) => {
     const data = await Kas.find();
+    const rupiah = new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    }).format(50000);
+    console.log(rupiah);
     if (!data) {
       res.status(404).json({
         message: "Kas Tidak Ada!",
@@ -114,18 +122,17 @@ module.exports = {
     });
   },
 
-  // rekapKap: async (req, res) => {
-  //   const data = await Kas.aggregate([
-  //     { $group: { _id: "$jenisKas", sum_val: { $sum: "$jumlah" } } },
-  //   ]);
+  rekapKas: async (req, res) => {
+    const data = await Kas.aggregate([
+      { $group: { _id: "$jenisKas", sum_val: { $sum: "$jumlah" } } },
+    ]);
+    // const totalKasMasuk = ;
 
-  //   // const totalKasMasuk = ;
-
-  //   res.status(200).json({
-  //     message: "Total Kas",
-  //     data: totalKasMasuk,
-  //     // dati: data,
-  //   });
-  // },
+    res.status(200).json({
+      message: "Total Kas",
+      data: data,
+      // dati: data,
+    });
+  },
   // // END KAS MASJID
 };

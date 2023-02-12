@@ -6,7 +6,8 @@ const KasSchema = new mongoose.Schema({
     required: true,
   },
   date: {
-    type: Date,
+    type: String,
+    required: true,
   },
   ket: {
     type: String,
